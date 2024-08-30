@@ -1,3 +1,3 @@
 # Images
 
-easily compress jpg/jpeg pictures.
+easily compress jpg/jpeg/png pictures.

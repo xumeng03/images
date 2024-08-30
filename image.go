@@ -4,6 +4,7 @@ import (
 	"image"
 	"image/jpeg"
 	_ "image/jpeg"
+	"image/png"
 	_ "image/png"
 	"io"
 )
@@ -44,6 +45,9 @@ func Encode(w io.Writer, img image.Image, t string, quality int) error {
 			return jpeg.Encode(w, rgba, &jpeg.Options{Quality: quality})
 		}
 		return jpeg.Encode(w, img, &jpeg.Options{Quality: quality})
+	case "png":
+		encoder := png.Encoder{CompressionLevel: png.BestCompression}
+		return encoder.Encode(w, img)
 	default:
 		println("type error!")
 		return nil

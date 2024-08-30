@@ -40,7 +40,7 @@ func Close(img image.Image, filename string, quality int) error {
 		return err
 	}
 	ext := path.Ext(filename)
-	err = Encode(file, img, strings.ReplaceAll(ext, ".", ""), quality)
+	err = Encode(file, img, strings.ReplaceAll(strings.ToLower(ext), ".", ""), quality)
 	if err != nil {
 		return err
 	}
